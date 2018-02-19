@@ -56,7 +56,7 @@ class Queue
   end
 
   def dequeue
-    @arr.pop
+    @arr.shift
   end
 
   def show
@@ -137,7 +137,7 @@ class Map
 end
 
 if __FILE__ == $PROGRAM_NAME
-  
+
   stack1 = Stack.new({name: "Tommy",
                       age: 26,
                       status: "Studying",
