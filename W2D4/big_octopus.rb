@@ -1,5 +1,3 @@
-#Find the longest fish in an array of fish in O(n^2)
-
 class Array
 
   def sluggish_octopus
@@ -77,4 +75,5 @@ p arr.clever_octopus
 
 tiles_array = ["up", "right-up", "right", "right-down", "down",         "left-down", "left",  "left-up" ]
 
-p slow_dance("up", tiles_array)
+p [].slow_dance("up", tiles_array)
+p [].slow_dance("right-down", tiles_array)
