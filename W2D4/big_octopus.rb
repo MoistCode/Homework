@@ -38,6 +38,10 @@ class Array
     return_idx
   end
 
+  def constant_dance(target, data_structure)
+    data_structure[target.to_sym]
+  end
+
   private
 
   def self.merging_octopus(left, right, &prc)
@@ -75,5 +79,9 @@ p arr.clever_octopus
 
 tiles_array = ["up", "right-up", "right", "right-down", "down",         "left-down", "left",  "left-up" ]
 
+tiles_hash = {"up": 0, "right-up": 1, "right": 2, "right-down": 3, "down": 4, "left-down": 5, "left": 6,  "left-up": 7}
+
 p [].slow_dance("up", tiles_array)
 p [].slow_dance("right-down", tiles_array)
+p [].constant_dance("up", tiles_hash)
+p [].constant_dance("right-down", tiles_hash)
