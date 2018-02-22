@@ -34,6 +34,12 @@ class Array
     longest
   end
 
+  def slow_dance(target, arr)
+    return_idx = nil
+    arr.each_with_index {|el, idx| return_idx = idx if el == target}
+    return_idx
+  end
+
   private
 
   def self.merging_octopus(left, right, &prc)
@@ -68,3 +74,7 @@ block = Proc.new {|length1, length2| length1.length <=> length2.length}
 p arr.sluggish_octopus
 p arr.dominant_octopus(&block).last
 p arr.clever_octopus
+
+tiles_array = ["up", "right-up", "right", "right-down", "down",         "left-down", "left",  "left-up" ]
+
+p slow_dance("up", tiles_array)
