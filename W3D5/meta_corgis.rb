@@ -109,8 +109,26 @@ class MetaCorgiSnacks
     @box_id = box_id
   end
 
+  def meta_treat(treat_type, info, tastiness)
+    "#{treat_type.capitalize}: #{info}: #{tastiness}"
+  end
+
   def method_missing(name, *args)
-    # Your code goes here...
+    method_name = name.to_s
+    if method_name == "bone"
+      info = @snack_box.get_bone_info(@box_id)
+      tastiness = @snack_box.get_bone_tastiness(@box_id)
+    elsif method_name == "kibble"
+      info = @snack_box.get_kibble_info(@box_id)
+      tastiness = @snack_box.get_kibble_tastiness(@box_id)
+    elsif method_name == "treat"
+      info = @snack_box.get_treat_info(@box_id)
+      tastiness = @snack_box.get_treat_tastiness(@box_id)
+    else
+      raise "Cannot complete request."
+    end
+
+    meta_treat(method_name, info, tastiness)
   end
 
 
