@@ -30,7 +30,8 @@ class User < ApplicationRecord
     end
   end
 
-  # Generates a 16-digit pseudorandom string
+  # Generates a 16-digit pseudorandom string when user is created but before
+  # validations occur
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end
