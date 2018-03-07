@@ -10,7 +10,7 @@
 
   User.create(
     username: Faker::Name.first_name,
-    password: (342242..545353435).to_a.sample
+    password: Faker::Name.last_name
   )
 
 end
