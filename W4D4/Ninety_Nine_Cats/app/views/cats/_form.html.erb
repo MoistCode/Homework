@@ -62,3 +62,6 @@
   <% submit_text = (cat.persisted? ? 'Update' : 'Create') + ' cat!' %>
   <input type="submit" value="<%= submit_text %>">
 </form>
+<% content_for :footer do %>
+  <p>This is in the forms partial page.</p>
+<% end %>
