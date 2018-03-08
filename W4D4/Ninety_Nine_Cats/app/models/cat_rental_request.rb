@@ -1,6 +1,7 @@
 class CatRentalRequest < ApplicationRecord
 
   # freeze renders constants immutable
+  # why use freeze?
   STATUS_STATES = %w(APPROVED DENIED PENDING).freeze
 
   after_initialize :assign_pending_status
