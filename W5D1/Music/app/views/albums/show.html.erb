@@ -1,0 +1,13 @@
+<ul>
+  <li>Album Title: <%= @album.title %></li>
+  <li>Year: <%= @album.year %></li>
+  <li>Status: <%= @album.status %></li>
+  <li>Band: <a href="<%= band_url(@album.band) %>"><%= Band.find_by(id: @album.band_id).name %></a></li>
+  <br>
+  <ol>Tracks:
+    <br>
+    <% Track.where(album_id: @album.id).each do |track| %>
+      <li><a href="<%= track_url(track) %>"><%= track.title %></a></li>
+    <% end %>
+  </ol>
+</ul>

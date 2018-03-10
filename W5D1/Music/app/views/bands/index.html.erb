@@ -1,0 +1,21 @@
+<h1>Bands Index Page</h1>
+
+<% Band.all.each do |band| %>
+  <ul>
+    <a href="<%= band_url(band) %>"><%= band.name %></a>
+
+    <li>
+      <a href="<%= edit_band_url(band) %>">Edit Band Details</a>
+    </li>
+
+    <li>
+      <form action="<%= band_url(band) %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="submit" value="Delete Band">
+      </form>
+    </li>
+
+
+  </ul>
+<% end %>

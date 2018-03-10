@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+
+
+<html>
+  <head>
+    <title>:D</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <style>
+
+    body {
+      background: linear-gradient(yellow, white);
+    }
+
+    #button {
+      line-height: 12px;
+      width: 100px;
+      font-size: 12pt;
+      font-family: tahoma;
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: blue;
+      background: linear-gradient(red, yellow)
+    }
+
+    #logout_button:active{
+      position: absolute;
+      top: 0;
+      right: 1;
+    }
+
+    #logout_button:hover{
+      position: absolute;
+      top: 0;
+      right: 5px;
+    }
+
+    #signup_button {
+      line-height: 12px;
+      width: 100px;
+      font-size: 12pt;
+      font-family: tahoma;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: red;
+      background: linear-gradient(orange, green)
+    }
+
+    #muh_head {
+      font-size: 50pt;
+      font-style: italic;
+      background: linear-gradient(blue, white)
+    }
+  </style>
+
+  <body>
+
+
+    <% if logged_in? %>
+      <form action="<%= session_url %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="_method" value="delete">
+        <input id="logout_button" type="submit" name="" value="Log Out">
+      </form>
+    <% else %>
+      <form action="<%= new_session_url %>" method="get">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input id="button" type="submit" name="" value="Log In">
+      </form>
+      <form action="<%= new_user_url %>" method="get">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input id="signup_button" type="submit" name="" value="Sign Up">
+      </form>
+    <% end %>
+    <br>
+    <p><%= current_user ? current_user.email : "Nobody" %> is currently logged on</p>
+    <h1 id="muh_head">Welcome to the Music App. This header will be everywhere >:D </h1>
+
+    <a href="<%= users_url %>">Main Page</a>
+    <a href="<%= bands_url %>">Bands List</a>
+    <a href="<%= albums_url %>">Albums List</a>
+    <a href="<%= tracks_url %>">Tracks List</a>
+    <br>
+    <br>
+    <%= flash[:success] if flash[:success]%>
+    <%= flash[:errors] if flash[:errors]%>
+
+    <%= yield %>
+
+  </body>
+</html>
