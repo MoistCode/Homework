@@ -37,16 +37,26 @@ RSpec.describe User, type: :model do
       expect(user.session_token).not_to be(nil)
     end
 
-    it 'returns the generated session token'
+    it 'returns the generated session token' do
+      expect(user.reset_session_token!).to be(user.session_token)
+    end
   end
 
   describe '::find_by_credentials' do
     context 'invalid email or password' do
-      it 'returns nil'
+      it 'returns nil' do
+        expect(
+          User.find_by_credentials('cow', 'cowman')
+        ).to be(nil)
+      end
     end
 
     context 'valid email and password' do
-      it 'returns the user object if the password and email are correct'
+      it 'returns the user object if the password and email are correct' do
+        expect(
+          User.find_by_credentials('tommy@tommy.com', 'password')
+        ).to eq(User.find_by(email: 'tommy@tommy.com'))
+      end
     end
   end
 
