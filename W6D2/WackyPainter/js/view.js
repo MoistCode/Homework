@@ -16,6 +16,7 @@ View.prototype.exercise0 = function () {
 
   //this one completed as an example :) no additional code necessary
   $('li').removeClass("square");
+  
 };
 
 View.prototype.exercise1 = function () {
