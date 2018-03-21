@@ -1,0 +1,10 @@
+When does the request get sent?
+  = The request gets sent immediately after the AJAX request was initiated
+When does the response come back?
+  = The response seems to come back instantly
+What's the current weather in New York?
+  = The weather returned is Overcast clouds
+Did the page refresh?
+  = No it did not.
+How could we use different HTTP methods in our request?
+  = I suppose we can try but it might not get us anywhere.
