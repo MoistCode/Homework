@@ -33,8 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // adding new photos
 
-  // --- your code here!
+  const photoToggleButton = document.querySelector(".photo-show-button")
 
+  photoToggleButton.addEventListener("click", (event) => {
+    let form = document.querySelector("div[class^='photo-form']");
+    if (form.className === "photo-form-container hidden") {
+      form.className = "photo-form-container";
+    } else {
+      form.className = "photo-form-container hidden";
+    }
+  });
 
 
 });
