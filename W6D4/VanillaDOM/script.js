@@ -44,5 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const sub = document.querySelector("input[class='photo-url-submit']");
+
+  sub.addEventListener("click", (event) => {
+    event.preventDefault();
+    let photoUl = document.querySelector("ul[class='dog-photos']");
+    let li = document.createElement('LI');
+    let img = document.createElement('img');
+    let urlText = document.querySelector("input[class='photo-url-input']");
+    img.src = urlText.value;
+    urlText.value = "";
+    li.append(img);
+    photoUl.append(li);
+  });
+
+
+
 
 });
