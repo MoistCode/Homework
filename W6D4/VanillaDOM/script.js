@@ -18,8 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // adding SF places as list items
 
-  document.querySelector("input[type='submit']");
+  const submitInput = document.querySelector("input[type='submit']");
 
+  submitInput.addEventListener("click", (event) => {
+    event.preventDefault();
+    let textBox = document.querySelector("input[class='favorite-input']");
+    let uLRest = document.querySelector("ul[id='restaurants']");
+    let newList = document.createElement('LI')
+    newList.textContent = textBox.value;
+    uLRest.append(newList);
+    textBox.value = "";
+  });
 
 
   // adding new photos
