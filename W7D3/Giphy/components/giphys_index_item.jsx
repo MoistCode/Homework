@@ -1,10 +1,16 @@
 import React from 'react';
 
 class GiphysIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.img_url = this.props.giphy.images.downsized.url;
+  }
 
   render() {
     return (
-      <li>{console.log(this.props)}</li>
+      <li>
+        <img src={this.img_url} />
+      </li>
     )
   }
 
