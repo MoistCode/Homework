@@ -7,5 +7,5 @@ import { configureStore } from '../store/store';
 document.addEventListener("DOMContentLoaded", () => {
   const store = configureStore();
   const root = document.getElementById('root');
-  ReactDOM.render(<GiphysSearchContainer />, root);
+  ReactDOM.render(<GiphysSearchContainer store={store} />, root);
 });
